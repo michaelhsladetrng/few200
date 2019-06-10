@@ -19,11 +19,11 @@ export class TodoListComponent {
     item.completed = true;
   }
 
-  add(what: HTMLInputElement) {
-    const description = what.value;
+  add(what: string) {
+    const description = what;
     this.items.unshift({ description, completed: false });
-    what.value = '';
-    what.focus();
+    // what.value = '';
+    // what.focus();
     // console.log(what);
   }
 
