@@ -15,16 +15,16 @@ export class TodoListComponent {
     { description: 'Change Oil', completed: true }
   ];
 
-  markComplete(item: TodoListItem) {
-    item.completed = true;
-  }
-
   add(what: string) {
     const description = what;
     this.items.unshift({ description, completed: false });
     // what.value = '';
     // what.focus();
     // console.log(what);
+  }
+
+  markComplete(item: TodoListItem) {
+    item.completed = true;
   }
 
   clearCompleted() {
