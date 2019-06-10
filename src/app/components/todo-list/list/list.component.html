@@ -1,0 +1,31 @@
+<div>
+  <ul class="list-unstyled">
+    <li class="alert"
+        [ngClass]="{'alert-success': item.completed, 'alert-info': !item.completed}"
+        *ngFor="let item of items">
+
+      <input type="button"
+             (click)="markComplete(item)"
+             *ngIf="!item.completed"
+             class="btn btn-sm btn-danger"
+             value="X"><span [ngClass]="{'completed': item.completed}">{{ item.description }}</span>
+
+    </li>
+    <!-- <input type="button"
+               class="btn btn-sm btn-danger"
+               value="X"><span> Clean Garage</span>
+      </li>
+      <li class="alert alert-info">
+        <input type="button"
+               class="btn btn-sm btn-danger"
+               value="X"><span>Fix Door</span>
+      </li>
+      <li class="alert alert-success">
+        <span class="completed"> Dishes</span>
+      </li> -->
+  </ul>
+  <input type="button"
+         (click)="clearCompleted()"
+         class="btn btn-lg btn-primary"
+         value="Clear Completed">
+</div>
