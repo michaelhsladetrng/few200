@@ -25,6 +25,7 @@ export class TodoListComponent implements OnInit {
 
   add(what: string) {
     const description = what;
+    this.service.add(description);
   }
 
   clearCompleted() {
