@@ -1,4 +1,4 @@
 .pretty {
-  color: purple;
+  color: purple !important;
   background: gold !important;
 }

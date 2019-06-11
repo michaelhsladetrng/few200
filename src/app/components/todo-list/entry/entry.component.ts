@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-entry',
@@ -8,18 +8,19 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class EntryComponent implements OnInit {
 
   @Output() itemAdded = new EventEmitter<string>();
-
   constructor() { }
 
   ngOnInit() {
   }
 
   add(what: HTMLInputElement) {
+    // let the momma-poppa know...
     // const description = what.value;
     // this.items.unshift({ description, completed: false });
     this.itemAdded.emit(what.value);
     what.value = '';
-    what.focus();
+    what.focus(); // 'focus' just puts the cursor back in that element.
     // console.log(what);
   }
+
 }

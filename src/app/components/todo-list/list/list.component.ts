@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { TodoListItem } from '../models';
 
 @Component({
@@ -7,6 +7,7 @@ import { TodoListItem } from '../models';
   styleUrls: ['./list.component.css', '../todo-list.component.css']
 })
 export class ListComponent implements OnInit {
+
   @Input() todoItems: TodoListItem[];
 
   @Output() clearCompletedItems = new EventEmitter();
@@ -16,13 +17,11 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  markComplete(item: TodoListItem) {
-    this.markItemComplete.emit(item);
-  }
-
   clearCompleted() {
     this.clearCompletedItems.emit();
   }
 
+  markComplete(item: TodoListItem) {
+    this.markItemComplete.emit(item);
+  }
 }

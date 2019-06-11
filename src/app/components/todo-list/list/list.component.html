@@ -8,8 +8,8 @@
              (click)="markComplete(item)"
              *ngIf="!item.completed"
              class="btn btn-sm btn-danger"
-             value="X"><span [ngClass]="{'completed': item.completed}">{{ item.description }}</span>
-
+             value="X">
+      <span [ngClass]="{'completed': item.completed}">{{ item.description }} </span>
     </li>
     <!-- <input type="button"
                class="btn btn-sm btn-danger"

@@ -15,8 +15,7 @@ export class LhsComponent implements OnInit {
 
   setIt(what: HTMLInputElement) {
     this.service.setMessage(what.value);
-    what.value = '';
-    what.focus();
+    // what.value = '';
+    // what.focus();
   }
-
 }

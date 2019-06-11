@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { TodoListItem } from './models';
-import { ViewEncapsulation } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,14 +7,17 @@ import { ViewEncapsulation } from '@angular/compiler/src/core';
   styleUrls: ['./todo-list.component.css']
   // encapsulation: ViewEncapsulation.None
 })
-
 export class TodoListComponent {
-
+  // Jeff Was Here
   items: TodoListItem[] = [
-    { description: 'Mow grass', completed: false },
+    { description: 'Mow Grass', completed: false },
     { description: 'Clean Gutters', completed: false },
     { description: 'Change Oil', completed: true }
   ];
+
+  markComplete(item: TodoListItem) {
+    item.completed = true;
+  }
 
   add(what: string) {
     const description = what;
@@ -23,10 +25,6 @@ export class TodoListComponent {
     // what.value = '';
     // what.focus();
     // console.log(what);
-  }
-
-  markComplete(item: TodoListItem) {
-    item.completed = true;
   }
 
   clearCompleted() {
