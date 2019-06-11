@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { TodoListItem } from './models';
+import { ViewEncapsulation } from '@angular/compiler/src/core';
 
 @Component({
-  styleUrls: ['./todo-list.component.css'],
   selector: 'app-todo-list',
-  templateUrl: './todo-list.component.html'
+  templateUrl: './todo-list.component.html',
+  styleUrls: ['./todo-list.component.css']
+  // encapsulation: ViewEncapsulation.None
 })
 
 export class TodoListComponent {
