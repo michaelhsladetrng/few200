@@ -9,7 +9,14 @@ import { CommunicationsService } from '../communications.service';
 export class RhsComponent implements OnInit {
 
   message = '';
-  constructor(private service: CommunicationsService) { }
+  message2: string;
+  constructor(private service: CommunicationsService) {
+    service.getSubscription()
+      .subscribe(newMessage => {
+        console.log('Got a new message: ', newMessage);
+        this.message2 = newMessage;
+      });
+  }
 
   ngOnInit() {
   }
