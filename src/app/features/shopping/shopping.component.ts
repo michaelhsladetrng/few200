@@ -16,6 +16,7 @@ export class ShoppingComponent implements OnInit {
   constructor(private store: Store<State>) { }
 
   ngOnInit() {
+    this.items$ = this.store.select(selectShoppingItems);
   }
 
 }
