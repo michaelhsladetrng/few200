@@ -3,16 +3,19 @@ import * as actions from '../actions/counter.actions';
 
 export interface State {
   current: number;
+  by: number;
 }
 
 const initialState: State = {
-  current: 0
+  current: 0,
+  by: 5
 };
 
 export const reducer = createReducer(
   initialState,
-  on(actions.countIncremented, state => ({ current: state.current + 1 })),
-  on(actions.countDecremented, state => ({ current: state.current - 1 })),
+  on(actions.countIncremented, (state: State) => ({ current: state.current + state.by, by: state.by })),
+  on(actions.countDecremented, (state: State) => ({ current: state.current - state.by, by: state.by })),
+  on(actions.countBySet, (state, { by }) => ({ current: state.current, by })),
   on(actions.countReset, state => initialState)
 );
 
