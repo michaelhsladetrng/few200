@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { State, selectShoppingItems } from './reducers';
+import { Observable } from 'rxjs';
+import { ShoppingItem } from './models';
 
 @Component({
   selector: 'app-shopping',
@@ -7,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingComponent implements OnInit {
 
-  constructor() { }
+  items$: Observable<ShoppingItem[]>;
+
+  constructor(private store: Store<State>) { }
 
   ngOnInit() {
   }

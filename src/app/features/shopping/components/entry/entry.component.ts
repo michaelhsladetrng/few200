@@ -12,4 +12,8 @@ export class EntryComponent implements OnInit {
   ngOnInit() {
   }
 
+  add(item: HTMLInputElement) {
+    // dispatch something
+  }
+
 }
