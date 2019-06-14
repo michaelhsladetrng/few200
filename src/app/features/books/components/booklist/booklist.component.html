@@ -1,3 +1,10 @@
-<p>
-  booklist works!
-</p>
+<div class="alert alert-info"
+     *ngIf="items.length === 0">
+  You have no books in your list. Add Them!
+</div>
+<ul class="list-unstyled">
+  <li class="alert alert-success"
+      *ngFor="let book of items">
+    Title: {{ book.title }} Author: {{ book.author }} Format: {{ book.format }}
+  </li>
+</ul>
