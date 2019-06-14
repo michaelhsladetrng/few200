@@ -1,3 +1,22 @@
-<p>
-  bookentry works!
-</p>
+<div class="form-group">
+  <label for="title">Title:</label>
+  <input name="title"
+         class="form-control"
+         #title>
+  <label for="author">Author:</label>
+  <input name="author"
+         class="form-control"
+         #author>
+  <label for="format">Format:</label>
+  <select name="format"
+          class="form-control"
+          #format>
+    <option value="HardCover">HardCover</option>
+    <option value="Paperback">Paperback</option>
+    <option value="E-Book">E-Book</option>
+  </select>
+  <input type="button"
+         (click)="addBook(title,author,format)"
+         class="btn btn-primary"
+         value="Add Book to List">
+</div>
