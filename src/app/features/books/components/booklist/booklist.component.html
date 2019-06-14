@@ -1,10 +1,16 @@
+<h5>Available Books</h5>
 <div class="alert alert-info"
      *ngIf="items.length === 0">
-  You have no books in your list. Add Them!
+  You have no books available
 </div>
 <ul class="list-unstyled">
   <li class="alert alert-success"
       *ngFor="let book of items">
     Title: {{ book.title }} Author: {{ book.author }} Format: {{ book.format }}
+    <input type="button"
+           (click)="markLoaned(book)"
+           *ngIf="!book.loaned"
+           class="btn btn-sm btn-danger"
+           value="Loan">
   </li>
 </ul>

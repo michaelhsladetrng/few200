@@ -9,6 +9,7 @@ export interface BookEntity {
   title: string;
   author: string;
   format: string;
+  loaned: boolean;
 }
 
 export interface BookListState extends EntityState<BookEntity> {
@@ -22,7 +23,8 @@ export const initialBookListState: BookListState = {
       id: '1',
       title: 'Book1',
       author: 'First Last',
-      format: 'HardCover'
+      format: 'HardCover',
+      loaned: true
     }
   }
 };
@@ -32,5 +34,7 @@ export const adapter = createEntityAdapter<BookEntity>();
 
 export const reducer = createReducer(
   initialBookListState,
-  on(actions.bookAddedToList, (state, { entity }) => adapter.addOne(entity, state))
+  on(actions.bookAddedToList, (state, { entity }) => adapter.addOne(entity, state)),
+  on(actions.bookLoaned, (state, { entity }) => adapter.updateOne(entity, state)),
+  on(actions.bookReturned, (state, { entity }) => adapter.updateOne(entity, state))
 );

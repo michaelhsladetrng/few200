@@ -1,0 +1,15 @@
+<h5>Loaned Books</h5>
+<div class="alert alert-success"
+     *ngIf="loaned.length === 0">
+  You have no books loaned out
+</div>
+<ul class="list-unstyled">
+  <li class="alert alert-success"
+      *ngFor="let book of loaned">
+    Title: {{ book.title }} Author: {{ book.author }} Format: {{ book.format }}
+    <input type="button"
+           (click)="markReturned(book)"
+           *ngIf="book.loaned"
+           class="btn btn-sm btn-danger"
+           value="Return"> </li>
+</ul>
