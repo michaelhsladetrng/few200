@@ -6,6 +6,6 @@
     <app-bookentry></app-bookentry>
   </div>
   <div class="col">
-    <app-booklist></app-booklist>
+    <app-booklist [items]="items$ | async"></app-booklist>
   </div>
 </div>
