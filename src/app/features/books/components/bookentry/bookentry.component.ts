@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { State } from '../../reducers';
+import { bookAddedToList } from '../../actions/booklist.actions';
 
 @Component({
   selector: 'app-bookentry',
@@ -7,20 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookentryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<State>) { }
 
   ngOnInit() {
   }
 
-  addBook(title: HTMLInputElement, author: HTMLInputElement, format: HTMLInputElement) {
-    const theTitle = title.value;
-    const theAuthor = author.value;
-    const theFormat = format.value;
-    // dispatch something
-    // this.store.dispatch(itemAddedToList({ description }));
-    title.value = '';
-    author.value = '';
-    format.value = '';
-    title.focus();
+  addBook(theTitle: HTMLInputElement, theAuthor: HTMLInputElement, theFormat: HTMLInputElement) {
+    const title = theTitle.value;
+    const author = theAuthor.value;
+    const format = theFormat.value;
+
+    this.store.dispatch(bookAddedToList({ title, author, format }));
+    theTitle.value = '';
+    theAuthor.value = '';
+    theFormat.value = '';
+    theTitle.focus();
   }
 }

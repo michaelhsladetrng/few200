@@ -1,6 +1,7 @@
 
 import { createReducer, on } from '@ngrx/store';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
+import * as actions from '../actions/booklist.actions';
 
 
 export interface BookEntity {
@@ -31,5 +32,5 @@ export const adapter = createEntityAdapter<BookEntity>();
 
 export const reducer = createReducer(
   initialBookListState,
-  // on(actions.itemAddedToList, (state, { entity }) => adapter.addOne(entity, state))
+  on(actions.bookAddedToList, (state, { entity }) => adapter.addOne(entity, state))
 );
