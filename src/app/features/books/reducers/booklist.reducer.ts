@@ -35,6 +35,6 @@ export const adapter = createEntityAdapter<BookEntity>();
 export const reducer = createReducer(
   initialBookListState,
   on(actions.bookAddedToList, (state, { entity }) => adapter.addOne(entity, state)),
-  on(actions.bookLoaned, (state, { entity }) => adapter.updateOne(entity, state)),
-  on(actions.bookReturned, (state, { entity }) => adapter.updateOne(entity, state))
+  // on(actions.bookLoaned, (state, { entity }) => adapter.updateOne(entity, state)),
+  // on(actions.bookReturned, (state, { entity }) => adapter.updateOne(entity, state))
 );
